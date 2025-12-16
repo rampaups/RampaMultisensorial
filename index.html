@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Terapéutico - Completo</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <div class="topbar">
+    <div class="topbar-content">
+        <span>📧 Rampa Multisensorial</span>
+        <span>📍 Cuenca, Ecuador</span>
+        <span>🎓 Carrera de Ingeniería Biomédica</span>
+    </div>
+</div>
+
+<h1>Control de Audios para Terapia</h1>
+
+
+    <div class="logo-izquierda">
+    <img src="logo-ups.png" alt="Logo UPS">
+</div>
+
+
+
+    <div class="controls">
+        <h2>🌌 Reproductor de fondo relajante</h2>
+        <button onclick="playBackgroundAudio('Sonidos Relajantes/soft-brown-noise-299934.mp3')">▶ Ruido Blanco</button>
+        <button onclick="playBackgroundAudio('Sonidos Relajantes/ambient-pads-loop-296968.mp3')">▶ Pads Ambientales</button>
+        <button onclick="playBackgroundAudio('Sonidos Relajantes/space-music-ambient-22325.mp3')">▶ Música Espacial</button>
+        <button onclick="stopBackgroundAudio()">⏹ Detener Ambiente</button>
+        <audio id="backgroundAudioPlayer" loop></audio>
+    </div>
+
+    <div class="menu">
+        <h2>🎵 Selecciona una Categoría</h2>
+        <button onclick="showSection('cotidianos')">Sonidos Cotidianos</button>
+        <button onclick="showSection('relajantes')">Sonidos Relajantes</button>
+        <button onclick="showSection('ambientales_amables')">Ambientales Amables</button>
+        <button onclick="showSection('ambientales_estresantes')">Ambientales Estresantes</button>
+    </div>
+
+    <div id="cotidianos" class="section">
+        <h2>🔊 Sonidos Cotidianos</h2>
+            <button onclick="playAudio('Sonidos Cotidianos/barking-large-and-small-dog-290711.mp3')">🐶 Perros Ladrando</button>
+            <button onclick="playAudio('Sonidos Cotidianos/big-dog-barking-300504.mp3')">🐕 Perro Ladrando</button>
+            <button onclick="playAudio('Sonidos Cotidianos/blender-37366.mp3')">🔄 Licuadora</button>
+            <button onclick="playAudio('Sonidos Cotidianos/breaking-glass-83809.mp3')">🧊 Cristal Roto</button>
+            <button onclick="playAudio('Sonidos Cotidianos/cellphone-ringing-6475.mp3')">📱 Sonido de Celular</button>
+            <button onclick="playAudio('Sonidos Cotidianos/doorbell-247139.mp3')">🚪🔔 Timbre</button>
+            <button onclick="playAudio('Sonidos Cotidianos/door-closing-353875.mp3')">🚪 Puerta Cerrándose</button>
+            <button onclick="playAudio('Sonidos Cotidianos/main-door-opening-closing-38280.mp3')">🚪➡️⬅️ Puerta Principal</button>
+            <button onclick="playAudio('Sonidos Cotidianos/microwave-ding-104123.mp3')">🍽️ Microondas</button>
+            <button onclick="playAudio('Sonidos Cotidianos/sink-faucet-running-73556.mp3')">🚰 Agua del Lavamanos</button>
+            <button onclick="playAudio('Sonidos Cotidianos/traffic-32180.mp3')">🚗🚙 Tráfico</button>
+            <button onclick="playAudio('Sonidos Cotidianos/vintage-doorbell-ring-sound-effect-325247.mp3')">🛎️ Timbre Amable</button>
+            <button onclick="playAudio('Sonidos Cotidianos/ambulance-siren-363656.mp3')">🚑 Ambulancia</button>
+            <button onclick="hideSections()">🔙 Volver</button>
+</div>
+
+
+    <div id="relajantes" class="section">
+    <h2>🌙 Sonidos Relajantes</h2>
+    <button onclick="playAudio('Sonidos Relajantes/ambient-glitched-synth-97674.mp3')">🎛️ Sinfonía Ambiental</button>
+    <button onclick="playAudio('Sonidos Relajantes/ambient-pads-loop-296968.mp3')">🎹 Pads Suaves</button>
+    <button onclick="playAudio('Sonidos Relajantes/space-music-ambient-22325.mp3')">🌌 Música Espacial</button>
+    <button onclick="playAudio('Sonidos Relajantes/white-noise-358382 (1).mp3')">🎧 Ruido Blanco</button>
+    <button onclick="hideSections()">🔙 Volver</button>
+</div>
+
+
+    <div id="ambientales_amables" class="section">
+        <h2>🌿 Sonidos Ambientales Amables</h2>
+            <button onclick="playAudio('Sonido Ambiental Amable/birds-chirping-75156.mp3')">🐦 Pájaros Cantando</button>
+            <button onclick="playAudio('Sonido Ambiental Amable/calming-rain-257596.mp3')">🌧️ Lluvia Suave</button>
+            <button onclick="playAudio('Sonido Ambiental Amable/singing-crickets-at-the-night-230342.mp3')">🦗 Grillos de Noche</button>
+            <button onclick="playAudio('Sonido Ambiental Amable/waterfall-in-distance-27967.mp3')">🏞️ Cascada Lejana</button>
+            <button onclick="playAudio('Sonido Ambiental Amable/winter-wind-305577.mp3')">💨 Viento Invernal</button>
+            <button onclick="hideSections()">🔙 Volver</button>
+</div>
+
+
+    <div id="ambientales_estresantes" class="section">
+        <h2>🔥 Sonidos Ambientales Estresantes</h2>
+            <button onclick="playAudio('Sonido Ambiente Estresante/rain-and-thunder-sfx-12820.mp3')">⛈️ Lluvia y Truenos</button>
+            <button onclick="playAudio('Sonido Ambiente Estresante/rooster-cock-a-doodle-doo-106702.mp3')">🐓 Gallo Cantando</button>
+            <button onclick="playAudio('Sonido Ambiente Estresante/thunderstorm-136832.mp3')">🌩️ Tormenta Fuerte</button>
+            <button onclick="hideSections()">🔙 Volver</button>
+</div>
+
+
+    <audio id="audioPlayer" controls></audio>
+
+    <div class="recordings">
+        <h2>🎧 Grabaciones</h2>
+        <button onclick="toggleLoop()" id="loopToggle">🔁 Repetir: Desactivado</button>
+        <ul id="recordingsList"></ul>
+    </div>
+
+    <div class="controls">
+        <h2>🎚️ Controles Globales</h2>
+        <label>Volumen:</label><br>
+        <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this.value)"><br><br>
+        <button onclick="changePlaybackRate(0.5)">0.5x</button>
+        <button onclick="changePlaybackRate(1)">1x</button>
+        <button onclick="changePlaybackRate(2)">2x</button><br><br>
+        <button onclick="startRecording()">🎙️ Grabar</button>
+        <button onclick="stopRecording()">🛑 Detener</button>
+    </div>
+
+    <!-- Botón flotante de menú -->
+<button id="sidebarToggle">☰ Menú</button>
+
+<!-- Menú lateral derecho -->
+<div id="sidebar">
+    <a href="https://www.youtube.com">Rampa Sensorial</a>
+    <a href="control-leds.html">Control de LEDs</a>
+    <a href="#tests">Módulo de Pruebas</a>
+    <a href="#" onclick="closeSidebar()">✖ Cerrar</a>
+</div>
+
+
+    
+
+    <script src="funciones.js"></script>
+</body>
+</html>

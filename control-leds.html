@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Control de Tira LED</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #003366;
+    }
+
+    button, input[type="range"] {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button {
+      background-color: #0055a5;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #0077cc;
+    }
+
+    input[type="color"] {
+      width: 60px;
+      height: 40px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #0055a5;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌈 Control de Tira LED</h1>
+
+  <p>Selecciona un color:</p>
+  <input type="color" id="colorPicker" onchange="enviarColor()" />
+
+  <p>Brillo:</p>
+  <input type="range" min="0" max="255" value="128" onchange="ajustarBrillo(this.value)"/>
+
+    <div>
+    <button onclick="encenderLED()">🔆 Encender</button>
+    <button onclick="apagarLED()">🌑 Apagar</button>
+    <button id="modoBtn" onclick="cambiarModo()">🤖 Modo: Manual</button>
+    </div>
+
+
+  <div>
+    <button onclick="efecto('rainbow')">🌈 Arcoíris</button>
+    <button onclick="efecto('flash')">⚡ Flash</button>
+    <button onclick="efecto('wave')">🌊 Ola</button>
+  </div>
+
+  <br><br>
+  <a href="index.html">⬅️ Volver al menú principal</a>
+
+    <script>
+    const baseURL = "http://190.63.241.33";
+    let modoSensor = false;
+
+    function encenderLED() {
+        abrirVentana(`${baseURL}/led/on`);
+    }
+
+    function apagarLED() {
+        abrirVentana(`${baseURL}/led/off`);
+    }
+
+    function enviarColor() {
+        const color = document.getElementById("colorPicker").value.substring(1); // sin #
+        abrirVentana(`${baseURL}/led/color?hex=${color}`);
+    }
+
+    function ajustarBrillo(valor) {
+        abrirVentana(`${baseURL}/led/brightness?val=${valor}`);
+    }
+
+    function efecto(nombre) {
+        abrirVentana(`${baseURL}/led/efecto?tipo=${nombre}`);
+    }
+
+    function cambiarModo() {
+        modoSensor = !modoSensor;
+        const modo = modoSensor ? "sensor" : "manual";
+        document.getElementById("modoBtn").textContent = modoSensor ? "🧠 Modo: Sensor" : "🤖 Modo: Manual";
+        abrirVentana(`${baseURL}/mode/${modo}`);
+    }
+
+    function abrirVentana(url) {
+        const win = window.open(url, "_blank", "width=1,height=1");
+        setTimeout(() => win.close(), 500);
+    }
+    </script>
+
+</body>
+</html>
+
+
